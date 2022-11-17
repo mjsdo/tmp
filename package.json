@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "aws s3 sync ./build s3://asnity-client --profile mjsdo",
+    "invalidate": "aws cloudfront create-invalidation --profile mjsdo --distribution-id E3JD8VXHII3TZD --paths /*"
   },
   "dependencies": {
     "react": "^18.2.0",
