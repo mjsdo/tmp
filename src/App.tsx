@@ -1,9 +1,17 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
+import axios from 'axios';
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    axios.post('http://49.50.167.202:3000/api/user/auth/signin', {
+      id: 'test1234@naver.com',
+      password: 'test1a123123'
+    }).then((res) => console.log(res.data))
+  }, [])
 
   return (
     <div className="App">
